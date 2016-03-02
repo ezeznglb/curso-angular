@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gems Store</title>
+    <title>Collections</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
     <script src="app.js"></script>
 </head>
-<body >
+<body ng-app="app">
 <table class="table table-condensed">
   <tr ng-repeat="(propertyName, propertyValue) in {b: 'two', a: 1.0, c: 3}">
     <td ng-bind="propertyName"></td>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+<head>
+    <meta charset="UTF-8">
+    <title>Gem Store</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+    <div class="list-group">
+         <header>
+            <h1 class="text-center">Gems Store</h1>
+        </header>
+        <div class="list-group-item" ng-repeat="gem in store.products">
+            <h3>
+                {{gem.name}}
+                <em class="class="pull-right">${{gem.price}}</em>
+                <section ng-controller="GalleryController as gallery" ng-show="gem.images.length">                            
+                    <img ng-src="{{gem.images[gallery.current]}}" />                         
+                    <ul class="list-inline thumbs">
+                        <li ng-repeat="image in gem.images">
+                            <img class="small" ng-src="{{image}}" ng-click="gallery.setCurrent($index)"/>
+                        </li>
+                    </ul>
+                </section>
+                <section class="tab" ng-controller="TabController as tab">
+                    <ul class="nav nav-pills">
+                        <li ng-class="{active: tab.isSelected(1)}"><a ng-click=" tab.changeTab(1)" href>Description</a></li>
+                        <li ng-class="{active: tab.isSelected(2)}"><a ng-click=" tab.changeTab(2)" href>Specs</a></li>
+                        <li ng-class="{active: tab.isSelected(3)}"><a  ng-click=" tab.changeTab(3)"href>Reviews</a></li>
+                    </ul>
+                    <div ng-show="tab.isSelected(1)">
+                        <h4>Description</h4>
+                        <blockquote>{{gem.description}}</blockquote>
+                    </div>
+                    <div ng-show="tab.isSelected(2)">
+                        <h4>Specs</h4>
+                        <blockquote>Shine: {{gem.shine}} </blockquote>
+                    </div>
+                    <div ng-show="tab.isSelected(3)">
+                        <h4>Reviews</h4>
+                        <blockquote></blockquote>
+                    </div>
+                </section>          
+            </h3>
+        </div>
+    </div>
+<body>
+</html>

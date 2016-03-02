@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Modules</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="ModuleController">
+    <input type="checkbox" ng-model="showMessage">
+    Check the box to show the message
+    <h2 class="message" ng-show="showMessage">
+      The secret message.
+    </h2>
+</div>
+</body>
+</html>

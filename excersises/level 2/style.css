@@ -1,0 +1,7 @@
+img {
+    marin: 12px;
+}
+img.small {
+    margin: 4px;
+    width: 60px;
+}
