@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gems Store</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body >
+<table class="table table-condensed">
+  <tr ng-repeat="(propertyName, propertyValue) in {b: 'two', a: 1.0, c: 3}">
+    <td ng-bind="propertyName"></td>
+    <td ng-bind="propertyValue"></td>
+  </tr>
+</table>
+<div ng-controller="ItemsController">
+  <h4 ng-pluralize count="items.length"
+      when="{'one': '1 item', 'other': '{} items'}">
+  </h4>
+  <table class="table table-condensed">
+    <tr ng-repeat="item in items">
+      <td ng-bind="item.name"></td>
+      <td>
+        <button class="btn btn-xs btn-default" ng-click="destroy(item)">
+          destroy
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<div ng-controller="ItemsController">
+  <ol>
+    <li ng-repeat="item in items">
+      {{item.name}}
+      <ol>
+        <li ng-repeat="item in item.items">
+          {{item.name}}
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+<ol>
+  <li ng-repeat="val in [1,2,3,4,5]">
+    <span class="label label-default"
+          ng-class="{'label-success': $middle}">
+      {{val}}
+    </span>
+  </li>
+</ol>
+<table class="table table-condensed">
+  <tr>
+    <td>1 === 1</td>
+    <td>{{1 === 1}}</td>
+  </tr>
+  <tr>
+    <td>'1' === '1'</td>
+    <td>{{'1' === '1'}}</td>
+  </tr>
+  <tr>
+    <td>1 === '1'</td>
+    <td>{{1 === '1'}}</td>
+  </tr>
+  <tr>
+    <td>{} === {}</td>
+    <td>{{ {} === {} }}</td>
+  </tr>
+  <tr>
+    <td>{name: 1} === {name: 1}</td>
+    <td>{{ {name: 1} === {name: 1} }}</td>
+  </tr>
+</table>
+<ol>
+  <li ng-repeat="val in [1,2,1] track by $index" ng-bind="val"></li>
+</ol>
+
+</body>
+</html>

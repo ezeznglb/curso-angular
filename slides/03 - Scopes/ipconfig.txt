@@ -1,0 +1,48 @@
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : glb-d3669
+   Primary Dns Suffix  . . . . . . . : globant.com
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : globant.com
+                                       corp.globant.com
+
+Ethernet adapter Local Area Connection:
+
+   Connection-specific DNS Suffix  . : bb.corp.globant.com
+   Description . . . . . . . . . . . : Intel(R) 82578DM Gigabit Network Connection
+   Physical Address. . . . . . . . . : 78-E3-B5-99-F4-43
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::4d9a:55fc:b0fd:cc9a%12(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 10.141.10.177(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : mi‚rcoles, 02 de marzo de 2016 09:58:58 a.m.
+   Lease Expires . . . . . . . . . . : mi‚rcoles, 02 de marzo de 2016 03:58:58 p.m.
+   Default Gateway . . . . . . . . . : 10.141.10.254
+   DHCP Server . . . . . . . . . . . : 10.141.2.250
+   DHCPv6 IAID . . . . . . . . . . . : 259580853
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-1B-69-B6-70-78-E3-B5-99-F4-43
+   DNS Servers . . . . . . . . . . . : 10.141.2.250
+                                       10.141.3.250
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Tunnel adapter isatap.bb.corp.globant.com:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : bb.corp.globant.com
+   Description . . . . . . . . . . . : Microsoft ISATAP Adapter
+   Physical Address. . . . . . . . . : 00-00-00-00-00-00-00-E0
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+Tunnel adapter Local Area Connection* 9:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Microsoft Teredo Tunneling Adapter
+   Physical Address. . . . . . . . . : 00-00-00-00-00-00-00-E0
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes

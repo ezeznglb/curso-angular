@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js">
+</script>
+</head>
+
+<body ng-app>
+    <p>The number {{3 + 4}}.</p>
+    <p>Are strings and numbers equal? {{'2' == 2}}</p>
+    <p>{{"Angular" + "js".toUpperCase()}}</p>
+    <p>{{a = 1; a + a}}</p>
+    <p>{{a = 1}} remains {{a}}</p>
+    <p>There {{count = 1; (count == 1 ? "is " : "are ") + count}} of them.</p>
+    <p>The number <span ng-bind="3 + 4"></span>.</p>
+    <div ng-init="sum = 3 + 2">
+      <p>
+        {{sum + 1}} is more than
+        <span ng-bind='sum - 1'></span>
+      </p>
+    </div>
+    <div ng-init="count = 7; units = 'days'; collection = 'week'">
+        <p>There are {{count}} {{units}} in a {{collection}}.</p>
+    </div>
+    <div ng-init="time = {count: 12, units: 'months', collection: 'year'}">
+        <p>There are {{time.count}} {{time.units}} in a {{time.collection}}.</p>
+    </div>
+    <div ng-init="months = ['January','February','March','April']">
+        <p>{{months[3]}} follows {{months[2]}} in {{months}}.</p>
+    </div>
+    <p ng-init="authorized = true">
+        The secret code is
+        <span ng-show="authorized">0123</span>
+        <span ng-hide="authorized">not for you to see</span>
+    </p>    
+    <p ng-init="authorized = true">
+        The secret code is
+        <span ng-show="authorized">0123</span>
+        <span ng-hide="authorized">not for you to see</span>
+        <br>
+        <input type="button" value="toggle" ng-click="authorized = !authorized">
+    </p>
+    <input type="text" ng-model="title">
+    is bound to
+    "<strong ng-bind="title"></strong>".
+        Type something in the box!
+    <input type='checkbox' ng-init='optIn = true' ng-model='optIn'>
+    is bound to
+    <strong ng-bind="optIn"></strong>.
+    Change it!
+    <input type='checkbox' ng-init='feeling = "love it"' ng-model='feeling'
+    ng-true-value='"love it"' ng-false-value='"hate it"'>
+    is bound to
+    "<strong ng-bind="feeling"></strong>".
+    Change it!
+</body>
+</html>

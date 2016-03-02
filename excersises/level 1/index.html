@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+<head>
+    <meta charset="UTF-8">
+    <title>Gem Store</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="storeController as store">
+    <div class="container row" ng-repeat="gem in store.products">
+        <h3>
+            {{gem.name}}
+            <em class="class="pull-right">${{gem.price}}</em>
+            <button class="btn btn-default" ng-show="gem.canPurchase">Add to Cart</button>
+        </h3>
+    </div>
+</body>
+</html>
