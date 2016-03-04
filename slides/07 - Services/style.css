@@ -1,0 +1,8 @@
+.message {
+  transition: 1s linear all;  
+  opacity: 1;
+}
+
+.message.ng-hide {
+  opacity: 0;
+}

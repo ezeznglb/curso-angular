@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Modules</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <p>{{"AngularJS" | lowercase}}</p>
+    <p>{{"AngularJS" | lowercase | uppercase }}</p>
+    <p>{{1000.12345 | number:3}}</p>
+    <p>{{1999.995 | currency:$}}</p>
+    <p ng-controller="DateController">
+        {{now | date: 'medium'}}
+    </p>
+    <ol ng-controller="ItemsController">
+        <li ng-repeat="item in items | orderBy:['position','name']">
+            {{item.name}}
+        </li>
+    </ol>
+    <table class="table table-condensed" ng-controller="ItemsController">
+        <tr ng-repeat="item in items | orderBy:'name'">
+        <td ng-bind="item.name"></td>
+            <td><input type="text" ng-model="item.name"></td>
+        </tr>
+    </table>
+    <table class="table table-condensed" ng-controller="ItemsController">
+        <thead>
+            <tr><th>name</th><th>color</th><th>price</th></tr>
+        <thead>
+        <tbody>
+            <tr ng-repeat="item in items | filter:{price: 2, color: 'red'}">
+                <td ng-bind="item.name"></td>
+                <td ng-bind="item.color"></td>
+                <td ng-bind="item.price | currency"></td>
+            </tr>
+        <tbody>
+    </table>
+    Filter: <input type="text" ng-model="q">
+    <table class="table table-condensed" ng-controller="ItemsController">
+      <thead>
+        <tr><th>name</th><th>color</th><th>price</th></tr>
+      <thead>
+      <tbody>
+        <tr ng-repeat="item in items | filter:q">
+          <td ng-bind="item.name"></td>
+          <td ng-bind="item.color"></td>
+          <td ng-bind="item.price | currency"></td>
+        </tr>
+      <tbody>
+    </table>
+    <strong ng-bind="'hello' | smiley"></strong>
+</body>
+</html>
