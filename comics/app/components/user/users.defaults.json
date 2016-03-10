@@ -1,0 +1,13 @@
+[{
+    "userName" : "admin",
+    "password" : "admin",
+    "firstName" : "Admin",
+    "lastName" : "Admin",
+    "isAdmin" : "true"
+},{
+    "userName" : "ezink",
+    "password" : "1234",
+    "firstName" : "Ezequiel",
+    "lastName" : "Zink",
+    "isAdmin" : false
+}]
