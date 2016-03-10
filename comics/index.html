@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Comics</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular/angular-animate.js"></script>
+    <script src="assets/libs/angular/angular-touch.js"></script>
+    <script src="assets/libs/angular/angular-route.js"></script>
+    <script src="assets/libs/angular/angular-messages.js"></script>
+    <script src="assets/libs/ui-bootstrap/ui-bootstrap-1.2.4.js"></script>
+    <script src="assets/libs/ui-bootstrap/ui-bootstrap-tpls-1.2.4.js"></script>
+    <script src="assets/libs/ngstorage/ngStorage.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/components/home/home.controller.js"></script>
+    <script src="app/components/user/signup.controller.js"></script>
+    <script src="app/routes.js"></script>
+</head>
+<body ng-app="comics">
+  <body>
+  	<header ng-include="'app/components/header/header.view.html'"></header>
+  	<section ng-view class="container">
+      <p>Loading...</p>
+  	</section>
+  	<aside ng-include="'app/components/summary/summary.view.html'"></aside>
+    <footer ng-include="'app/components/footer/footer.view.html'"></footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<header class="row">
+  <div class="col-md-6">
+    <h3>Sign in to our website. </h3>
+  </div>
+</header>
+<div class="row">
+    <div class="col-md-6">
+      <form name="userForm" novalidate>
+        <fieldset class="form-group">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" ng-model="newUser.firstName" name="firstName" placeholder="Type your first name">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="lastName">Last name</label>
+          <input type="text" class="form-control" ng-model="newUser.lastName" name="lastName" placeholder="Type your last name">
+        </fieldset>
+        <fieldset class="form-group" ng-class="{ 'has-error': showMessages && userForm.userName.$invalid }">
+          <label for="userName">User name</label>
+          <input type="text" class="form-control" ng-model="newUser.userName" name="userName" required placeholder="Type your alphanumeric user name">
+          <div ng-if="showMessages" ng-messages="userForm.userName.$error">
+            <p ng-message="required">userName is required.</p>
+          </div>
+        </fieldset>
+        <fieldset class="form-group" ng-class="{ 'has-error': showMessages && userForm.password.$invalid }">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" ng-model="newUser.password" name="password" required placeholder="Type your password">
+          <div ng-if="showMessages" ng-messages="userForm.password.$error">
+            <p ng-message="required">Password is required.</p>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="submit" class="btn btn-primary" ng-click="addUser()" value="Sign up"/>
+        </fieldset>
+      </form>>
+    </div>
+  </div>
