@@ -7,11 +7,10 @@
                     var origin = scope.$eval(attrs["checkPassword"]);
                     if (origin !== value) {
                         ctrl.$setValidity("checkPassword",false);
-                        return undefined;
                     } else {
                         ctrl.$setValidity("checkPassword",true);
-                        return value;
                     }
+                    return value;
                 });
             }
         };

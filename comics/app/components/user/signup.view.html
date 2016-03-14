@@ -24,9 +24,9 @@
           <label for="userName">User name</label>
           <input type="text" class="form-control"
                  ng-model="newUser.userName"
-                 pattern="/^[a-zA-Z0-9]*$/"
-                 required
                  name="userName" 
+                 ng-pattern="/^[a-zA-Z0-9]*$/"
+                 ng-required
                  placeholder="Type your alphanumeric user name">
           <div ng-if="showMessages" ng-messages="userForm.userName.$error">
             <p ng-message="required">User name is required.</p>
@@ -37,9 +37,9 @@
           <label for="password">Password</label>
           <input type="password" class="form-control"
                  ng-model="newUser.password"
-                 pattern="/^[a-zA-Z0-9]*$/"
-                 minlength="7"
-                 required
+                 ng-pattern="/^[a-zA-Z0-9]*$/"
+                 ng-minlength="7"
+                 ng-required
                  name="password"
                  placeholder="Type your password">
           <div ng-if="showMessages" ng-messages="userForm.password.$error">
@@ -53,8 +53,8 @@
           <input type="password" class="form-control"
                  ng-model="verifyPassword"
                  check-password="newUser.password"
-                 required
-                 name="verifyPassword"
+                 ng-required
+                 ng-name="verifyPassword"
                  placeholder="Type your password again">
           <div ng-if="showMessages" ng-messages="userForm.verifyPassword.$error">
             <p ng-message="required">Password verification is required.</p>
@@ -62,7 +62,7 @@
           </div>
         </fieldset>
         <fieldset class="form-group">
-          <input type="submit" class="btn btn-primary" ng-click="addUser()" value="Sign up"/>
+          <input type="submit" class="btn btn-primary" ng-click="addUser()" ng-enable="userForm.$invalid" value="Register"/>
         </fieldset>
       </form>
     </div>

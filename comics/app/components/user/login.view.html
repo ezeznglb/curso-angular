@@ -1,0 +1,44 @@
+<header class="row">
+  <div class="col-md-6">
+    <h3>Login to our website. </h3>
+  </div>
+</header>
+<div class="row">
+    <div class="col-md-6">
+      <form name="loginForm" novalidate>
+        <fieldset class="form-group" ng-class="{ 'has-error': showMessages && userForm.userName.$invalid }">
+          <label for="userName">User name</label>
+          <input type="text" class="form-control"
+                 ng-model="user.userName"
+                 ng-pattern="/^[a-zA-Z0-9]*$/"
+                 ng-required
+                 name="userName" 
+                 placeholder="User name">
+          <div ng-if="showMessages" ng-messages="loginForm.userName.$error">
+            <p ng-message="required">User name is required.</p>
+            <p ng-message="pattern">User name should be alphanumeric.</p>
+          </div>
+        </fieldset>
+        <fieldset class="form-group" ng-class="{ 'has-error': showMessages && loginForm.password.$invalid }">
+          <label for="password">Password</label>
+          <input type="password" class="form-control"
+                 ng-model="user.password"
+                 ng-pattern="/^[a-zA-Z0-9]*$/"
+                 ng-minlength="7"
+                 ng-required
+                 name="password"
+                 placeholder="Password">
+          <div ng-if="showMessages" ng-messages="loginForm.password.$error">
+            <p ng-message="required">Password is required.</p>
+            <p ng-message="minlength">Password is too short.</p>
+            <p ng-message="pattern">Password should be alphanumeric.</p>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <p ng-if="loginError">Username and password are incorrect.</p>
+            <input type="submit" class="btn btn-primary" ng-click="login()" value="Login"/>
+            <input type="button" class="btn" ng-click="register()" value="Register"/>
+        </fieldset>
+      </form>
+    </div>
+  </div>

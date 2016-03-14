@@ -8,5 +8,5 @@
         // Local and session Storage config
         $localStorageProvider.setKeyPrefix('zn-comics-');
         $sessionStorageProvider.setKeyPrefix('zn-comics-');
-    });;
+    });
 })();

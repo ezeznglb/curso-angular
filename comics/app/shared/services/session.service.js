@@ -1,20 +1,24 @@
 (function () {
-    angular.module.factory('userSession', function(usersService) {
-        var currentUser = false;
+    angular.module('comics').factory('userSession', function($sessionStorage, usersService) {
         return {
             login: function(userName, password) {
+                var user;
                 if (angular.isDefined(userName) && angular.isDefined(password)) {
-                    currentUser = usersService.getUser(userName, password);
+                    user = usersService.getUser(userName);
+                    if (user && user.password == password) {
+                        $sessionStorage.currentUser = user;
+                    } else {
+                        $sessionStorage.currentUser = false;
+                    }
                 }
-                return currentUser;
+                return $sessionStorage.currentUser;
             },
             logout: function() {
-                return points;
+                $sessionStorage.currentUser = false;
             },
             getCurrentUser() {
-                return currentUser;
+                return $sessionStorage.currentUser;
             }
     };
   });
-
 })();
