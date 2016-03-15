@@ -1,5 +1,5 @@
 (function () {
-  angular.module('comics').controller('HeaderController', function ($scope, userSession) {
+  angular.module('comics').controller('HeaderController', function ($scope, $location, userSession) {
       $scope.isLogged = false;
       $scope.greeting = 'Please login';
       $scope.isAdmin = false;
@@ -10,13 +10,20 @@
         if ($scope.isLogged) {
             $scope.greeting = 'Welcome ' + user.lastName + ', ' + user.firstName;
             $scope.userName = user.userName;
-        }    
+        } else {
+            $scope.greeting = 'Please login';
+        }
     };
 
     $scope.logout = function(index) {
-      userSession.logout();
+        userSession.logout();
+        $location.url('/redirect/logout');
+        $scope.refreshUser();
     };
-      
+    
+    $scope.$on('userChange', function (event) {
+        $scope.refreshUser();
+    });
     $scope.refreshUser();
   });
 })();

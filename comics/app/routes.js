@@ -24,6 +24,13 @@
                     resolve: {
                         userLogged: onlyLoggedIn
                     }
+            })
+            .when('/redirect/:action', {
+                    controller: 'RedirectController',
+                    templateUrl: 'app/shared/components/redirect.view.html',
+                    resolve: {
+                        redirectMesagges: loadRedirectMessages
+                    }
             });
         });
 
@@ -33,8 +40,16 @@
                 deferred.resolve();
             } else {
                 deferred.reject();
-                $location.url('/login');
+                $location.url('/user/login');
             }
             return deferred.promise;
+        },   
+        loadRedirectMessages = function ($http) {
+            return $http({ 
+                    method: 'GET', 
+                    url: 'app/shared/components/redirect.messages.json'
+                }).success(function(response, status, headers, conf) {
+                    return response;
+                });
         };
 })();

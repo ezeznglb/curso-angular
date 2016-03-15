@@ -1,0 +1,20 @@
+{
+    "register": {
+        "title": "User registered",
+        "message": "Thank to register to our website.",
+        "redirectToLabel": "Login page",
+        "redirectTo": "/user/login"
+    },
+    "login": {
+        "title": "User logged in",
+        "message": "Thank to login to our website.",
+        "redirectToLabel": "Home page",
+        "redirectTo": "/"
+    },
+    "logout": {
+        "title": "User logged out",
+        "message": "Thank to visit our website. Your session has been closed",
+        "redirectToLabel": "Login page",
+        "redirectTo": "/user/login"
+    }    
+}

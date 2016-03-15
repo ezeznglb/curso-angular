@@ -1,12 +1,12 @@
 [{
     "userName" : "admin",
-    "password" : "admin",
+    "password" : "admin123",
     "firstName" : "Admin",
     "lastName" : "Admin",
     "isAdmin" : "true"
 },{
     "userName" : "ezink",
-    "password" : "1234",
+    "password" : "1234567",
     "firstName" : "Ezequiel",
     "lastName" : "Zink",
     "isAdmin" : false

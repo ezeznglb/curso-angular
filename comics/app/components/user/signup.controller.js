@@ -8,7 +8,7 @@
       if (!usersService.addUser($scope.newUser)) {
           console.log('Error creating user');
       }else {
-          $location.url('/');
+          $location.url('/redirect/register');
       }
       $scope.showMessages = true;
     }
