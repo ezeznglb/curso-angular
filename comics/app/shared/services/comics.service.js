@@ -3,7 +3,7 @@
         .factory('comicsService', function ($http, $localStorage) {
             if (!$localStorage.comics) {
                     //Initial data for first run
-                    $http.get('app/components/user/comics.defaults.json')
+                    $http.get('app/shared/components/comics.defaults.json')
                         .success (function(data){
 				            $localStorage.comics = data;
                         });

@@ -1,9 +1,23 @@
-<script type="text/ng-template" id="alert.html">
-  <div class="alert" style="background-color:#fa39c3;color:white" role="alert">
-    <div ng-transclude></div>
-  </div>
-</script>
-
-<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
-<uib-alert template-url="alert.html">A happy alert!</uib-alert>
-<button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+<div class="row">
+    <div class="col-md-9">
+        <div class="input-group">
+            <select class="form-control"
+                    ng-model= "filterBy"
+                    ng-options= "item as item.label for item in filterOptions"/>
+            <input type="text" class="form-control" ng-model="filterTerm" placeholder="Search for...">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="thumbnail col-md-3" ng-repeat="comic in comics | filter: filterConfig track by comic.id">
+      <img ng-src="{{comic.cover}}" alt="{{comic.title}}">
+      <div class="caption">
+        <h4>{{comic.title}}</h4>
+        <p>{{comic.company}}</p>
+        <p>
+            <a href="#" class="btn btn-primary" role="button">View</a>
+            <a href="#" class="btn btn-default" role="button">Borrow</a>
+        </p>
+      </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@
     <title>Comics</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <script src="assets/libs/angular/angular.js"></script>
     <script src="assets/libs/angular/angular-animate.js"></script>
     <script src="assets/libs/angular/angular-touch.js"></script>
@@ -17,6 +18,8 @@
     <script src="app/components/home/home.controller.js"></script>
     <script src="app/components/user/users.service.js"></script>
     <script src="app/shared/services/session.service.js"></script>
+    <script src="app/shared/services/comics.service.js"></script>
+    <script src="app/shared/filters/escape.filter.js"></script>
     <script src="app/components/user/password.directive.js"></script>
     <script src="app/components/user/signup.controller.js"></script>
     <script src="app/components/user/login.controller.js"></script>
@@ -28,12 +31,12 @@
 <body ng-app="comics">
   <body>
   	<header ng-include="'app/components/header/header.view.html'"></header>
-    <div class="container">
+    <div class="container main-content">
         <div class="row">
-            <section class="col-md-9" ng-view class="container">
+            <section class="col-md-10 ng-view class="container">
                 <p>Loading...</p>
             </section>
-            <aside class="col-md-3" ng-include="'app/components/summary/summary.view.html'"></aside>
+            <aside class="col-md-2" ng-include="'app/components/summary/summary.view.html'"></aside>
         </div>
     </div>
     <footer ng-include="'app/components/footer/footer.view.html'"></footer>

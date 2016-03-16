@@ -1,8 +1,19 @@
-body {
-    padding-bottom: 40px;
-    padding-top: 60px;
+.container.main-content {
+    width: 100%;
+    margin-bottom:100px;
 }
 
+.footer {
+    height: 30px;
+}
+.thumbnail {
+    margin: 10px;
+    padding-top: 40px;
+}
+.thumbnail img {
+    min-height: 260px;
+    height: 260px;
+} 
 .sidebar-nav-fixed {
-	width:100%;
+	width: 100%;
 }
