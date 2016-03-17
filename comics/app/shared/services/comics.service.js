@@ -1,6 +1,15 @@
 (function () {
     angular.module('comics')
         .factory('comicsService', function ($http, $localStorage) {
+            var addUniqueElements = function (collection, source) {
+                angular.forEach(source, function(value, key) {
+                    if (collection.indexOf(value) === -1) {
+                        collection.push(value);   
+                    }
+                });
+                return collection;
+            }
+            
             if (!$localStorage.comics) {
                     //Initial data for first run
                     $http.get('app/shared/components/comics.defaults.json')
@@ -9,6 +18,27 @@
                         });
             }
             return {
+                getEditions: function () {
+                    var editions = [];
+                        angular.forEach($localStorage.comics, function(comic) {
+                            editions = addUniqueElements(editions, [comic.edition]);
+                        });
+                    return editions;
+                },
+                getCharacters: function () {
+                    var characters = [];
+                        angular.forEach($localStorage.comics, function(comic) {
+                            characters = addUniqueElements(characters, comic.characters);
+                        });
+                    return characters;
+                },
+                getGenres: function () {
+                    var genres = [];
+                        angular.forEach($localStorage.comics, function(comic) {
+                            genres = addUniqueElements(genres, comic.genre);
+                        });
+                    return genres;
+                },
                 getComics: function () {
                     return $localStorage.comics;
                 },
