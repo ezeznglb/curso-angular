@@ -12,6 +12,13 @@
                     userLogged: onlyLoggedIn
                 }
             })
+            .when('/comics/:id', {
+                controller: 'DetailController',
+                templateUrl: 'app/components/home/detail.view.html',
+                resolve: {
+                    userLogged: onlyLoggedIn
+                }
+            })
             //User managment routes
             .when('/user/register', {
                 controller: 'SignupController',

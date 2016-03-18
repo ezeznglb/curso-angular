@@ -1,28 +1,33 @@
 <div class="row">
+  <div class="col-md-12">
+    <h2>{{title}}</h2>
+  </div>
+</div>
+<div class="row">
     <div class="col-md-12">
         <div class="input-group">
-            <select class="form-control"
+            <select class="form-control nput-sm"
                     ng-model= "filterBy"
                     ng-options= "item as item.label for item in filterOptions"/>
-            <input type="text" class="form-control" ng-model="filterTerm" placeholder="Search for...">
+            <input type="text" class="form-control nput-sm" ng-model="filterTerm" placeholder="Search for...">
         </div>
     </div>
 </div>
 <div class="row">
   <div class="col-md-9">
-      <div class="row">
+      <div class="row comics-list">
         <div class="thumbnail col-md-3" ng-repeat="comic in comics | filter: filterConfig track by comic.id">
           <img ng-src="{{comic.cover}}" alt="{{comic.title}}">
           <div class="caption">
             <h4>{{comic.title}}</h4>
             <p>{{comic.company}}</p>
             <p>
-                <a href="#" class="btn btn-primary" role="button">View</a>
+                <a ng-href="#/comics/{{comic.id}}" class="btn btn-primary" role="button">View</a>
                 <a href="#" class="btn btn-default" role="button">Borrow</a>
             </p>
           </div>
         </div>
       </div>
   </div>
-  <aside class="col-md-3" ng-include="'app/components/summary/summary.view.html"></aside>
+  <aside class="col-md-3" ng-include="'app/components/summary/summary.view.html'"></aside>
 </div>

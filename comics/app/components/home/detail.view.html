@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{comic.title}}</h2>
+  </div>
+</div>
+<div class="row">
+    <div class="thumbnail col-md-3">
+      <img ng-src="{{comic.cover}}" alt="{{comic.title}}">
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+            <h3>Synopsis</h3>
+            <p>{{comic.synopsis}}</p>
+            <h4>Issue number</h4>
+            <p>{{comic.issueNumber}}</p>
+            <h4>Creator</h4>
+            <p>{{comic.creator}}</p>
+            <h4>Company</h4>
+            <p>{{comic.company}}</p>
+            <h4>Genre</h4>
+            <p>{{comic.genre}}</p>
+            <h4>Edition</h4>
+            <p>{{comic.edition}}</p>
+            <h4>Release date</h4>
+            <p>{{comic.releaseDate}}</p>
+            <h4>Characters</h4>
+            <p>{{comic.characters}}</p>
+            <h4>Recomendedd</h4>
+            <p>{{comic.recomendation}}</p>
+            <h4>Borrowed</h4>
+            <p>{{comic.borrowed}}</p>
+            <h4>Times borrowed</h4>
+            <p>{{comic.timesBorrowed}}</p>
+            <h4>Available</h4>
+            <p>{{comic.available}}</p>
+            <h4>Rating</h4>
+            <p>{{ratingNumber}}</p>
+            <uib-rating ng-model="ratingNumber" max="10" read-only="isReadonly" ></uib-rating>
+        </div>
+      </div>
+      <div class="row">
+ 
+      </div>
+    </div>
+</div>
