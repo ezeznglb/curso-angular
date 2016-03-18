@@ -13,7 +13,11 @@
 .thumbnail img {
     min-height: 260px;
     height: 260px;
-} 
+}
 .sidebar-nav-fixed {
 	width: 100%;
+}
+
+span.editor-invalid {
+  color: red;
 }

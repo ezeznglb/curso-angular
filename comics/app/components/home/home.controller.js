@@ -1,38 +1,42 @@
 (function () {
-  angular.module('comics').controller('HomeController', function ($scope, comicsService) {
+  angular.module('comics').controller('HomeController', function ($scope, $location, collectionService) {
+    var queryParams = $location.search();
     $scope.filterConfig = {};
-    $scope.comics = comicsService.getComics();
-        $scope.$watchGroup(['filterBy', 'filterTerm'], function(newValues, oldValues, scope) {
-              var pepitp = "";
+    $scope.comics = collectionService.getAll('comics');
+    $scope.$watchGroup(['filterBy', 'filterTerm'], function(newValues, oldValues, scope) {
                 if (angular.isDefined(newValues[0]) &&
                     angular.isDefined(newValues[1]) &&
                     newValues[0].value !== '' ){
                     $scope.filterConfig[newValues[0].value] = newValues[1];
+                } else if (queryParams) {
+                    $scope.filterConfig = queryParams;
                 } else {
                     $scope.filterConfig = {};
                 }
         });
         $scope.filterOptions = [{
             label: 'All',
-            value: 'all' 
+            value: 'all'
         },{
             label: 'Editions',
-            value: 'edition' 
+            value: 'edition'
         },{
             label: 'Title',
-            value: 'title' 
+            value: 'title'
         },{
             label: 'Collection',
-            value: 'collection' 
+            value: 'collection'
         },{
             label: 'Recommended',
-            value: 'recommended' 
+            value: 'recommended'
         },{
             label: 'Creator',
-            value: 'creator' 
+            value: 'creator'
         },{
             label: 'Advanced',
-            value: 'advanced' 
+            value: 'advanced'
         }];
+        $scope.filterBy = $scope.filterOptions[0];
+
   });
 })();

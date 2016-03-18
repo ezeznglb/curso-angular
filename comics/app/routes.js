@@ -3,6 +3,9 @@
       .config(function($routeProvider) {
         $routeProvider
             .when('/', {
+                 redirectTo: "/comics"
+            })
+            .when('/comics', {
                 controller: 'HomeController',
                 templateUrl: 'app/components/home/home.view.html',
                 resolve: {
@@ -25,6 +28,20 @@
                         userLogged: onlyLoggedIn
                     }
             })
+            .when('/admin', {
+                    controller: 'AdminController',
+                    templateUrl: 'app/components/admin/admin.view.html',
+                    resolve: {
+                        userLogged: adminLoggedIn
+                    }
+            })
+            .when('/admin/:feature', {
+                    controller: 'AdminController',
+                    templateUrl: 'app/components/admin/admin.view.html',
+                    resolve: {
+                        userLogged: adminLoggedIn
+                    }
+            })
             .when('/redirect/:action', {
                     controller: 'RedirectController',
                     templateUrl: 'app/shared/components/redirect.view.html',
@@ -37,16 +54,31 @@
         var onlyLoggedIn = function ($location, $q, userSession) {
             var deferred = $q.defer();
             if (userSession.getCurrentUser()) {
+              if (userSession.isAdmin()){
+                deferred.reject();
+                $location.url('/admin');
+              } else {
+                  deferred.resolve();
+              }
+            } else {
+                deferred.reject();
+                $location.url('/user/login');
+            }
+            return deferred.promise;
+        },
+        adminLoggedIn = function ($location, $q, userSession) {
+            var deferred = $q.defer();
+            if (userSession.getCurrentUser() && userSession.isAdmin()) {
                 deferred.resolve();
             } else {
                 deferred.reject();
                 $location.url('/user/login');
             }
             return deferred.promise;
-        },   
+        },
         loadRedirectMessages = function ($http) {
-            return $http({ 
-                    method: 'GET', 
+            return $http({
+                    method: 'GET',
                     url: 'app/shared/components/redirect.messages.json'
                 }).success(function(response, status, headers, conf) {
                     return response;

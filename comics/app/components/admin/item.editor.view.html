@@ -1,0 +1,36 @@
+  <tr>
+    <form name="editor" novalidate>
+    <td ng-show= "isEditing" ng-repeat="item in data">
+      <input
+        name="{{columns[$index].name}}"
+        type="{{columns[$index].type}}"
+        ng-required="columns[$index].required"
+        ng-model="data[columns[$index].name]">
+    </td>
+
+    <td ng-show= "!isEditing" ng-repeat="item in data">
+      {{columns[$index].type==='password' ? "*******" : item}}
+    </td>
+    <td>
+      <div class="btn-toolbar" role="toolbar">
+        <div ng-if="!isEditing" class="btn-group" role="group">
+          <button type="button" class="btn btn-default btn-sm" ng-click="toggleEditor()">
+            <span class="fa fa-edit"></span>
+          </button>
+          <button type="button" class="btn btn-default btn-sm" ng-click="delete()">
+            <span class="fa fa-trash-o"></span>
+          </button>
+        </div>
+        <div ng-if="isEditing" class="btn-group" role="group">
+          <span class="editor-invalid fa fa-exclamation-circle fa-2x" ng-if="editor.$invalid" uib-tooltip="Error!" tooltip-is-open="editor.$invalid"></span>
+          <button type="button" class="btn btn-default btn-sm" ng-click="save()">
+            <span class="fa fa-save"></span>
+          </button>
+          <button type="button" class="btn btn-default btn-sm" ng-click="dismiss()">
+            <span class="fa fa-ban"></span>
+          </button>
+        </div>
+      </div>
+    </td>
+  </form>
+  </tr>

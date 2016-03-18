@@ -16,14 +16,15 @@
     <script src="assets/libs/ngstorage/ngStorage.js"></script>
     <script src="app/app.js"></script>
     <script src="app/components/home/home.controller.js"></script>
-    <script src="app/components/user/users.service.js"></script>
+    <script src="app/shared/services/collections.service.js"></script>
     <script src="app/shared/services/session.service.js"></script>
-    <script src="app/shared/services/comics.service.js"></script>
     <script src="app/shared/filters/escape.filter.js"></script>
     <script src="app/components/user/password.directive.js"></script>
     <script src="app/components/user/signup.controller.js"></script>
     <script src="app/components/user/login.controller.js"></script>
     <script src="app/components/user/profile.controller.js"></script>
+    <script src="app/components/admin/admin.controller.js"></script>
+    <script src="app/components/admin/item.editor.directive.js"></script>
     <script src="app/shared/components/redirect.controller.js"></script>
     <script src="app/components/header/header.controller.js"></script>
     <script src="app/routes.js"></script>
@@ -33,10 +34,10 @@
   	<header ng-include="'app/components/header/header.view.html'"></header>
     <div class="container main-content">
         <div class="row">
-            <section class="col-md-10 ng-view class="container">
+            <section class="col-md-12 ng-view class="container">
                 <p>Loading...</p>
             </section>
-            <aside class="col-md-2" ng-include="'app/components/summary/summary.view.html'"></aside>
+
         </div>
     </div>
     <footer ng-include="'app/components/footer/footer.view.html'"></footer>

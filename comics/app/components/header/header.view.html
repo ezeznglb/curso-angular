@@ -8,34 +8,29 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav" ng-if="isLogged">
-            <li class="btn-group" uib-dropdown>
+            <li class="btn-group" uib-dropdown ng-if="!isAdmin">
                 <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true">Editions<span  class="caret"></span></a>
                 <ul uib-dropdown-menu role="menu">
-                    <li role="menuitem" ng-repeat="link in editionLinks track by $index">
+                    <li role="menuitem" ng-repeat="link in editionsLinks track by $index">
                         <a ng-href="{{link.link}}">{{link.name}}</a></li>
                 </ul>
             </li>
-            <li class="btn-group" uib-dropdown>
+            <li class="btn-group" uib-dropdown ng-if="!isAdmin">
                 <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true">Genres<span  class="caret"></span></a>
                 <ul uib-dropdown-menu role="menu">
                     <li role="menuitem" ng-repeat="link in genresLinks track by $index">
                         <a ng-href="{{link.link}}">{{link.name}}</a></li>
                 </ul>
             </li>
-            <li class="btn-group" uib-dropdown>
+            <li class="btn-group" uib-dropdown ng-if="!isAdmin">
                 <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true">Characters<span  class="caret"></span></a>
                 <ul uib-dropdown-menu role="menu">
                     <li role="menuitem" ng-repeat="link in charactersLinks track by $index">
                         <a ng-href="{{link.link}}">{{link.name}}</a></li>
                 </ul>
             </li>
-            <li class="btn-group" uib-dropdown>
-                <a href="#" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true">News<span  class="caret"></span></a>
-                <ul uib-dropdown-menu role="menu">
-                    <li role="menuitem" ng-repeat="link in newsLinks track by $index">
-                        <a ng-href="{{link.link}}">{{link.name}}</a></li>
-                </ul>
-            </li>
+            <li ng-if="isAdmin"><a href="#/admin/users">Manage Users</a></li>
+            <li ng-if="isAdmin"><a href="#/admin/comics">Manage Comics</a></li>
         </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><p class="navbar-text">{{greeting}}</p></li>
@@ -53,7 +48,7 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-    
+
     </div><!-- /.container-fluid -->
 </nav>
 </nav>

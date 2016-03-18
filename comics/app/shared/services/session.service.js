@@ -1,10 +1,10 @@
 (function () {
-    angular.module('comics').factory('userSession', function($sessionStorage, usersService) {
+    angular.module('comics').factory('userSession', function($sessionStorage, collectionService) {
         return {
             login: function(userName, password) {
                 var user;
                 if (angular.isDefined(userName) && angular.isDefined(password)) {
-                    user = usersService.getUser(userName);
+                    user = collectionService.getBy('userName', userName, 'users');
                     if (user && user.password == password) {
                         $sessionStorage.currentUser = user;
                     } else {
@@ -12,6 +12,9 @@
                     }
                 }
                 return $sessionStorage.currentUser;
+            },
+            isAdmin: function () {
+              return $sessionStorage.currentUser.isAdmin;
             },
             logout: function() {
                 $sessionStorage.currentUser = false;
