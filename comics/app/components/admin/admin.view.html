@@ -8,7 +8,8 @@
     <table class="table table-striped">
     	<thead>
     	<tr>
-    		<th ng-repeat="column in configModel">{{column.caption}}</th>
+    		<th ng-show="!column.onlyEditor" ng-repeat="column in configModel">{{column.caption}}
+        </th>
         <th>Actions</th>
     	</tr>
     	</thead>

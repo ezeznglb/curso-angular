@@ -73,10 +73,12 @@
           },{
             name: 'synopsis',
             caption : 'Synopsis',
+            onlyEditor: true,
             type: 'text'
           },{
             name: 'creator',
             caption : 'Creator',
+            onlyEditor: true,
             type: 'text'
           },{
             name: 'company',
@@ -92,11 +94,13 @@
             type: 'text'
           },{
             name: 'genre',
+            onlyEditor: true,
             caption : 'Genre',
             type: 'text'
           },{
             name: 'releaseDate',
             caption : 'Release Date',
+            onlyEditor: true,
             type: 'text'
           },{
             name: 'characters',
@@ -105,10 +109,12 @@
           },{
             name: 'cover',
             caption : 'Cover',
+            onlyEditor: true,
             type: 'text'
           },{
             name: 'votes',
             caption : 'Votes',
+            onlyEditor: true,
             type: 'text'
           },{
             name: 'recomendation',
@@ -121,11 +127,12 @@
           },{
             name: "timesBorrowed",
             caption : 'Times Borrowed',
+            onlyEditor: true,
             type: 'text'
           },{
             name: "available",
             caption : 'Available',
-            type: 'text'
+            type: 'switch'
           }];
           $scope.configActions = {
             edit : function () {return true;},

@@ -1,15 +1,28 @@
   <tr>
     <form name="editor" novalidate>
     <td ng-show= "isEditing" ng-repeat="item in data">
-      <input
-        name="{{columns[$index].name}}"
-        type="{{columns[$index].type}}"
-        ng-required="columns[$index].required"
-        ng-model="data[columns[$index].name]">
+        <input
+            ng-if="columns[$index].type !== 'switch'"
+            name="{{columns[$index].name}}"
+            type="{{columns[$index].type}}"
+            ng-required="columns[$index].required"
+            ng-model="data[columns[$index].name]">
+        <toggle-switch
+            ng-if="columns[$index].type === 'switch'"
+            ng-model="data[columns[$index].name]"
+            on-label="Yes"
+            off-label="No">
+        </toggle-switch>
     </td>
-
-    <td ng-show= "!isEditing" ng-repeat="item in data">
-      {{columns[$index].type==='password' ? "*******" : item}}
+    <td ng-show= "!isEditing && !columns[$index].onlyEditor" ng-repeat="item in data">
+      <span ng-if="columns[$index].type !== 'switch'">{{columns[$index].type==='password' ? "*******" : item}}</span>
+        <toggle-switch
+            ng-if="columns[$index].type === 'switch'"
+            ng-model="data[columns[$index].name]"
+            disabled="true"
+            on-label="Yes"
+            off-label="No">
+        </toggle-switch>
     </td>
     <td>
       <div class="btn-toolbar" role="toolbar">

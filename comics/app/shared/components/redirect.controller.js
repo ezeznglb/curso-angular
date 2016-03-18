@@ -11,6 +11,6 @@
       var countDown = $interval(function() {
             $interval.cancel(countDown);
             $scope.redirect();
-      }, 10000);
+      }, 5000);
   });
 })();
